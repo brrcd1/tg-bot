@@ -60,11 +60,9 @@ def get_weather(message):
 
 @bot.message_handler(commands=['help'])
 def website(message):
-    markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=2)
-    translate = types.KeyboardButton('Переводчик')
+    markup = types.ReplyKeyboardMarkup(row_width=2)
     note = types.KeyboardButton('Заметка')
     markup.add(translate, note)
-    bot.send_message(message.chat.id, 'если нужен переводчик или требуется сделать заметку', reply_markup=markup)
 
 
 bot.polling(none_stop=True)

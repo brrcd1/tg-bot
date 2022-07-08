@@ -3,15 +3,14 @@ from pprint import pprint
 from config import API_token
 
 def get_weather(city, API_token):
-
     code_to_smile = {
         "Clear": "Ясно \U00002600",
         "Clouds": "Облачно \U00002601",
         "Rain": "Дождь \U00002614",
         "Drizzle": "Дождь \U00002614",
-        "Thunderstorm": "Гроза \U00026A1",
+        "Thunderstorm": "Гроза \U000026A1",
         "Snow": "Снег \U0001F328",
-        "Mist": "Туман \U0001F32B",
+        "Mist": "Туман \U0001F32B"
     }
 
     try:
@@ -30,19 +29,21 @@ def get_weather(city, API_token):
         else:
             wd = "Посмотри в окно, я сам не понимаю, что там происходит"
 
-        wind = data["main"]["speed"]
+        wind = data["wind"]["speed"]
         print(f"Погода в городе: {city}\nТемпература: {cur_weather}C° {wd}\n"
-        f"\nВетер: {wind} м/с\n"
-        f"Хорошего дня!"
-        )
+              f"\nВетер: {wind} м/с\n"
+              f"Хорошего дня!"
+              )
 
-    except Exception as ex
+    except Exception as ex:
         print(ex)
         print('Ошибка')
+
 
 def main():
     city = input('Введите город: ')
     get_weather(city, API_token)
+
 
 if __name__ == '__main__':
     main()
